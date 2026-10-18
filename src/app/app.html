@@ -1,0 +1,28 @@
+<main>
+  <h1>Garibaldo</h1>
+
+  <div class="stage" (pointermove)="onMove($event)" (pointerleave)="tilt.set('')">
+    <div class="tilt" [style.transform]="tilt()">
+      <div class="card" [class.flipped]="flipped()">
+        <div class="face back" aria-hidden="true"><span>🪶</span></div>
+
+        <article class="face front" [attr.aria-hidden]="!flipped()">
+          <header>
+            <h2>{{ bird().name }}</h2>
+            <small>{{ bird().origin }}</small>
+          </header>
+          <div class="art">
+            @if (imgFailed()) {
+              <span class="placeholder" role="img" [attr.aria-label]="bird().name">🐤</span>
+            } @else {
+              <img referrerpolicy="no-referrer" [src]="bird().image" [alt]="bird().name" (error)="imgFailed.set(true)" />
+            }
+          </div>
+          <p>{{ bird().description }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <button (click)="drawAgain()" [disabled]="!flipped()">Draw again</button>
+</main>
