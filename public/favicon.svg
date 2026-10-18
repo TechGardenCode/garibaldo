@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <pattern id="s" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#f7931e"/>
+      <rect width="5" height="10" fill="#ff6b35"/>
+    </pattern>
+  </defs>
+  <g transform="rotate(-8 32 32)">
+    <rect x="12" y="4" width="40" height="56" rx="7" fill="#fff"/>
+    <rect x="16" y="8" width="32" height="48" rx="4" fill="url(#s)"/>
+    <path d="M41 17c-11 1-19 11-18 25l-3 6 4-2c13-1 19-14 17-29z" fill="#fff"/>
+    <path d="M38 22 25 44" stroke="#f7931e" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+</svg>
