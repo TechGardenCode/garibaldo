@@ -24,5 +24,7 @@
     </div>
   </div>
 
+  <p class="sr-only" aria-live="polite">{{ flipped() ? 'You drew ' + bird().name : '' }}</p>
+
   <button (click)="drawAgain()" [disabled]="!flipped()">Draw again</button>
 </main>

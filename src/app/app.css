@@ -11,8 +11,8 @@ main {
 h1 {
   margin: 0;
   font-size: clamp(2rem, 8vw, 3rem);
-  color: #fff;
-  text-shadow: 0 3px 0 #c98a00;
+  color: #6b3f00;
+  text-shadow: 0 3px 0 rgb(255 255 255 / 0.7);
   letter-spacing: 0.02em;
 }
 
@@ -20,7 +20,7 @@ h1 {
   perspective: 1000px;
   width: min(80vw, 320px);
   aspect-ratio: 5 / 7;
-  touch-action: none;
+  touch-action: pan-y; /* tilt on drag, but vertical swipes still scroll the page */
   animation: deal 0.7s cubic-bezier(0.2, 1.3, 0.4, 1) both;
 }
 
@@ -69,7 +69,7 @@ h1 {
 
 .front header { display: flex; flex-direction: column; }
 .front h2 { margin: 0; font-size: 1.3rem; }
-.front small { color: #888; }
+.front small { color: #6b6b6b; }
 
 .art {
   position: relative;
@@ -101,14 +101,24 @@ button {
   padding: 0.8rem 2rem;
   border: none;
   border-radius: 999px;
-  background: #ff6b35;
+  background: #c2410c;
   color: #fff;
-  box-shadow: 0 4px 0 #c24a1c;
+  box-shadow: 0 4px 0 #8a2d08;
   cursor: pointer;
   transition: transform 0.1s, box-shadow 0.1s, opacity 0.2s;
 }
 button:active { transform: translateY(4px); box-shadow: none; }
 button:disabled { opacity: 0.5; }
+button:focus-visible { outline: 3px solid #3b2200; outline-offset: 3px; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
 
 @keyframes deal {
   from { transform: translateY(-120vh) rotate(-25deg); }
@@ -117,4 +127,5 @@ button:disabled { opacity: 0.5; }
 @media (prefers-reduced-motion: reduce) {
   .stage { animation: none; }
   .card, .tilt { transition: none; }
+  .tilt { transform: none !important; } /* beats the inline tilt style */
 }
